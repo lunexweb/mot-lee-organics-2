@@ -122,7 +122,7 @@ const Checkout = () => {
 
   if (cartState.items.length === 0) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="bg-background">
         <Navbar />
         <div className="container mx-auto px-4 py-12 text-center">
           <ShoppingCart className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
@@ -138,7 +138,7 @@ const Checkout = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="bg-background">
       <Navbar />
       
       <div className="container mx-auto px-4 py-8">
