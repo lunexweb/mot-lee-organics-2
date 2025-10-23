@@ -11,6 +11,12 @@ const Navbar = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
+  const handleNavigation = () => {
+    // Scroll to top when navigating
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsOpen(false); // Close mobile menu
+  };
+
   const menuItems = [
     { name: "Products", path: "/products" },
     { name: "IBO Dashboard", path: "/ibo-dashboard" },
@@ -31,6 +37,7 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 to={item.path}
+                onClick={handleNavigation}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
                   isActive(item.path) ? "text-primary" : "text-foreground/80"
                 }`}
@@ -39,7 +46,7 @@ const Navbar = () => {
               </Link>
             ))}
             <Button variant="default" size="sm" asChild>
-              <Link to="/checkout">
+              <Link to="/checkout" onClick={handleNavigation}>
                 <ShoppingCart className="w-4 h-4 mr-2" />
                 Cart ({cartState.itemCount})
               </Link>
@@ -64,13 +71,13 @@ const Navbar = () => {
                 key={item.path}
                 to={item.path}
                 className="block py-2 text-foreground/80 hover:text-primary"
-                onClick={() => setIsOpen(false)}
+                onClick={handleNavigation}
               >
                 {item.name}
               </Link>
             ))}
             <Button variant="default" size="sm" className="w-full" asChild>
-              <Link to="/checkout" onClick={() => setIsOpen(false)}>
+              <Link to="/checkout" onClick={handleNavigation}>
                 <ShoppingCart className="w-4 h-4 mr-2" />
                 Cart ({cartState.itemCount})
               </Link>

@@ -40,6 +40,8 @@ const ProductCard = ({ id, name, price, category, image, description }: ProductC
           size="sm"
           onClick={(e) => {
             e.stopPropagation();
+            // Scroll to top when adding to cart
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             dispatch({
               type: 'ADD_ITEM',
               payload: {

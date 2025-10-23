@@ -63,6 +63,9 @@ const ProductDetail = () => {
 
   const handleAddToCart = () => {
     if (product) {
+      // Scroll to top when adding to cart
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
       // Add items to cart based on quantity
       for (let i = 0; i < quantity; i++) {
         dispatch({
